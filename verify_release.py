@@ -74,7 +74,7 @@ def main():
     else:
         root = Path(__file__).resolve().parent
         names = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file()
-                 and "__pycache__" not in p.parts and "runs" not in p.parts}
+                 and "__pycache__" not in p.parts and ".git" not in p.parts and "runs" not in p.parts}
         result = check(lambda name: (root / name).read_bytes(), names)
     print(json.dumps(result, indent=2))
 
