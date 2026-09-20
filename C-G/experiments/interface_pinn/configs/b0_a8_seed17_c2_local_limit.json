@@ -1,0 +1,40 @@
+{
+  "beta": 0,
+  "law_path": "../initial_law.json",
+  "device": "cuda",
+  "cpu_threads": 4,
+  "seed": 17,
+  "width": 48,
+  "depth": 3,
+  "fourier_frequencies": [
+    1,
+    2,
+    4
+  ],
+  "envelope_power": 3.9592893151432804,
+  "cutoff_smoothing_fraction": 0.05,
+  "local_rbf": true,
+  "column_scaling": true,
+  "fixed_controls": [
+    1.039711668061532,
+    1.040011668061532
+  ],
+  "arclength_steps": 60,
+  "arclength_step": 0.0005,
+  "maximum_arclength_step": 0.0005,
+  "minimum_arclength_step": 3.125e-05,
+  "lm_iterations": 100,
+  "jacobian_chunk": 64,
+  "log_every": 20,
+  "initial_damping": 1e-05,
+  "force_tolerance": 5e-07,
+  "constraint_tolerance": 1e-05,
+  "monitor_tangent": true,
+  "stop_at_first_instability": true,
+  "maximum_chord_ratio": 2,
+  "notch_depth_mm": 8,
+  "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a8.pkl",
+  "output_directory": "experiments/interface_pinn/runs/b0_a8_seed17_c2_local_limit",
+  "initial_checkpoint": "experiments/interface_pinn/runs/b0_a8_seed17_c2_local_path/state_0042.pt",
+  "prefix_run": "experiments/interface_pinn/runs/b0_a8_seed17_c2_local_path"
+}

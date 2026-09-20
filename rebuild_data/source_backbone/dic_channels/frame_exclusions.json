@@ -1,0 +1,15 @@
+{
+  "0-4-1": {
+    "first_excluded_frame": 1339,
+    "last_observed_frame": 1341,
+    "reason": "Complete fracture and subsequent fragment separation. The author identifies the recording tail as gravity-driven motion after failure, outside the quasistatic identification response.",
+    "reviewed_on": "2026-09-20",
+    "evidence": {
+      "raw_directory": "E:/baxi/DIC/0-4-1",
+      "last_frame_before_visible_separation": "041_1338_0.bmp",
+      "first_separated_images": ["041_1339_0.bmp", "041_1339_1.bmp"],
+      "sampled_export_tail": "E:/baxi/DIC/sampled_manualmask_exports_20260311/0-4-1/041_1341_0.out",
+      "description": "An abrupt relative movement and opening appears between frames 1338 and 1339 in the original images. Frame 1341 is the only sampled export after this boundary. Earlier frames are not certified as prepeak by this exclusion; force synchronization is a separate requirement."
+    }
+  }
+}

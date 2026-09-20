@@ -1,0 +1,26 @@
+{
+  "beta": 90,
+  "notch_depth_mm": 6,
+  "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a6.pkl",
+  "law_path": "../initial_law.json",
+  "output_directory": "experiments/interface_pinn/runs/b90_a6_seed17_spatial",
+  "device": "cuda",
+  "cpu_threads": 4,
+  "seed": 17,
+  "width": 48,
+  "depth": 3,
+  "fourier_frequencies": [
+    1,
+    2,
+    4
+  ],
+  "envelope_power": 1,
+  "max_control_delta0": 1.7,
+  "training_levels": 24,
+  "evaluation_levels": 97,
+  "adam_steps": 1800,
+  "learning_rate": 0.002,
+  "lbfgs_blocks": 160,
+  "log_every": 400,
+  "pilot_residual_target": 0.01
+}

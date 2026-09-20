@@ -1,0 +1,29 @@
+{
+  "beta": 0,
+  "notch_depth_mm": 6,
+  "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a6.pkl",
+  "law_path": "../initial_law.json",
+  "output_directory": "experiments/interface_pinn/runs/b0_a6_seed17_limit",
+  "bracket_checkpoints": [
+    "experiments/interface_pinn/runs/b0_a6_seed17_arc/state_0027.pt",
+    "experiments/interface_pinn/runs/b0_a6_seed17_arc/state_0028.pt"
+  ],
+  "device": "cuda",
+  "cpu_threads": 4,
+  "seed": 17,
+  "width": 48,
+  "depth": 3,
+  "fourier_frequencies": [
+    1,
+    2,
+    4
+  ],
+  "envelope_power": 3.9592893151432804,
+  "maximum_bisections": 10,
+  "bracket_width_delta0": 0.0001,
+  "lm_iterations": 600,
+  "jacobian_chunk": 64,
+  "initial_damping": 1e-05,
+  "force_tolerance": 0.0001,
+  "constraint_tolerance": 1e-07
+}

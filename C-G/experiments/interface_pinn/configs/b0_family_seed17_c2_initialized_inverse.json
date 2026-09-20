@@ -1,0 +1,101 @@
+{
+  "beta": 0,
+  "law_path": "../initial_law.json",
+  "split_path": "../results/data/e1_inputs/identification_split.json",
+  "peak_path": "../results/data/group_assets/f723fea9/curated/force_all_specimens.csv",
+  "gauge_path": "../results/data/e1_inputs/dic_channels/csd_w_cod_curve.csv",
+  "output_directory": "experiments/interface_pinn/runs/b0_family_seed17_c2_initialized_inverse",
+  "device": "cuda",
+  "cpu_threads": 4,
+  "seed": 17,
+  "width": 48,
+  "depth": 3,
+  "fourier_frequencies": [
+    1,
+    2,
+    4
+  ],
+  "envelope_power": 3.9592893151432804,
+  "cutoff_smoothing_fraction": 0.05,
+  "sigma_gauge_um": 8.9,
+  "physics_weight": 1000,
+  "lm_iterations": 80,
+  "law_warmup_iterations": 10,
+  "jacobian_chunk": 128,
+  "initial_damping": 1e-06,
+  "force_tolerance": 0.001,
+  "fraction_tolerance": 0.0001,
+  "critical_tolerance": 0.0001,
+  "checkpoint_every": 20,
+  "cases": [
+    {
+      "notch_depth_mm": 4,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a4.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b0_a4_seed17_initial_branch/checkpoint.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b0_a4_seed17_c2_local_path/fields.npz",
+      "initial_controls": [
+        0.28652821591557587,
+        0.30023328187113923,
+        0.4297235738976598,
+        0.5261703454687118,
+        0.6150825468224299,
+        0.6983767932604851,
+        0.8072873032951897
+      ],
+      "local_control_centers": [
+        0.28652821591557587,
+        0.30023328187113923,
+        0.4297235738976598,
+        0.5261703454687118,
+        0.6150825468224299,
+        0.6983767932604851,
+        0.8072873032951897
+      ],
+      "initialize_local_from_branch": true,
+      "initial_control_branch": "experiments/interface_pinn/runs/b0_a4_seed17_c2_local_path"
+    },
+    {
+      "notch_depth_mm": 6,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a6.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b0_a6_seed17_limit/state_0008.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b0_a6_seed17_c2_local_limit/fields.npz",
+      "allow_peak_only": true,
+      "initial_controls": [
+        0.914055498934088
+      ],
+      "local_control_centers": [
+        0.914055498934088
+      ],
+      "initialize_local_from_branch": true,
+      "initial_control_branch": "experiments/interface_pinn/runs/b0_a6_seed17_c2_local_limit"
+    },
+    {
+      "notch_depth_mm": 8,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a8.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b0_a8_seed17_initial_branch/checkpoint.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b0_a8_seed17_c2_local_limit/fields.npz",
+      "initial_controls": [
+        0.4186768556687982,
+        0.44581558896203854,
+        0.49826808994474964,
+        0.6266252315618768,
+        0.7513932301284717,
+        0.8714671149201815,
+        1.0449712944665297
+      ],
+      "local_control_centers": [
+        0.4186768556687982,
+        0.44581558896203854,
+        0.49826808994474964,
+        0.6266252315618768,
+        0.7513932301284717,
+        0.8714671149201815,
+        1.0449712944665297
+      ],
+      "initialize_local_from_branch": true,
+      "initial_control_branch": "experiments/interface_pinn/runs/b0_a8_seed17_c2_local_limit"
+    }
+  ],
+  "local_rbf": true,
+  "column_scaling": true
+}

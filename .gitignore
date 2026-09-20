@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+results/runs/
+C-G/experiments/interface_pinn/runs/
+C-G/paper/generated/

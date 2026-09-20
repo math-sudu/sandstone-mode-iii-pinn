@@ -1,0 +1,5 @@
+numpy==2.4.4
+scipy==1.16.2
+torch==2.8.0
+PyYAML==6.0.2
+scikit-fem==12.0.1

@@ -1,0 +1,57 @@
+{
+  "kind": "anbd_notch_plane_geometry",
+  "phase_id": "E1-INPUTS",
+  "role": "notch-plane geometry, material constants, and source SIF/friction map for the anti-plane (Mode III) inverse setup (I-E1-E2 payload)",
+  "specimen_geometry": {
+    "type": "ANBD (axially-notched Brazilian disc)",
+    "disc_diameter_D_mm": 50,
+    "thickness_2t_mm": 25,
+    "half_thickness_t_mm": 12.5,
+    "notch_inclination_alpha_deg": 10,
+    "notch_width_mm": 2,
+    "notch_depths_a_mm": [4, 6, 8],
+    "notch_depth_ratio_a_over_t": [0.32, 0.48, 0.64]
+  },
+  "bedding_orientations_beta_deg": [0, 45, 90],
+  "notch_plane": "the through-thickness ANBD double-notch plane; the crack path is KNOWN and coplanar with the notch plane (source C1 coplanarity). Anti-plane (Mode III) shear acts along this plane; tau_III(delta_III) is the cohesive traction-separation law to identify.",
+  "loading": {
+    "control": "displacement control",
+    "rate_mm_per_min": 0.2,
+    "temperature": "room"
+  },
+  "material": {
+    "rock": "feldspathic sandstone (Baxi-01 host rock; Sichuan mountain-tunnel host rock context)",
+    "E_GPa": 14.3,
+    "nu": 0.28,
+    "UCS_MPa": 102.9,
+    "density_g_cm3": 2.43,
+    "Vp_km_s": 3.378,
+    "mineralogy_pct": {"feldspar": 42.3, "quartz": 36.3, "calcite": 21.4}
+  },
+  "frictionless_FE_Y_III": {
+    "by_a_over_t": {"0.32": 1.185, "0.48": 1.582, "0.64": 2.079},
+    "note": "bedding-independent in the source FE; per facts_index this is a relax_with_named_limit toward a bedding-dependent Y_III(beta) (source OQ3)."
+  },
+  "source_SIF": {
+    "K_I": "K_I = P/(R sqrt(2 pi t)) Y_I",
+    "K_III": "K_III = P/(R sqrt(2 pi t)) Y_III",
+    "ref": "eq:sif_anbd (Bahrami2022, source method-origin anchor pid_ab8ec3cb32bd)"
+  },
+  "source_friction_correction": {
+    "equation": "K_IIIc_hat = K_IIIc (1 - mu |K_I*/K_III*|)",
+    "source_mu": 0.2,
+    "recompute_as": "mu(beta) (K3 recalibration target)",
+    "ref": "eq:kiiic_friction (facts_index)"
+  },
+  "governing_physics": {
+    "equilibrium": "anti-plane equilibrium grad . tau = 0 with tau_III = tau_III(delta_III) along the notch plane",
+    "fracture_energy": "G_IIIc = integral tau_III d delta_III",
+    "dic_kinematics": "R_III = |CSD_W/COD| = |delta_III/delta_I| (eq:r3_def); FPZ_alpha = length{x: |eps_xy(x,0)| > alpha |eps_xy|max} (eq:fpz_def)"
+  },
+  "provenance": {
+    "reference_project": "Baxi-01 ANBD Mode-III fracture data warehouse (BJTU group own-work)",
+    "own_work_asset": {"document_id": 27, "sha256_8": "f723fea9", "dataset_id": 226, "dataset_name": "baxi_kiiic_stats"},
+    "facts_index_ref": "results/state_refs/p0_intake/facts_index.json",
+    "claim_contract_ref": "results/state_refs/p2_claims/claim_contract.json"
+  }
+}

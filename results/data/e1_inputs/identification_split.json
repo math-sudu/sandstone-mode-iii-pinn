@@ -1,0 +1,49 @@
+{
+  "kind": "identification_holdout_split",
+  "phase_id": "E1-INPUTS",
+  "design": "Replicate-holdout, non-circular. Replicate r3 of every (beta, a) cell is HELD OUT and never used in identification; replicates r1+r2 form the identification set; the 2 intact (un-notched) controls are a separate control set. split_independence=physical_independent (held-out specimens are physically distinct specimens, not a temporal/spatial slice of an identification specimen). The held-out set spans all three bedding orientations and all three notch depths, so the Mode III fracture-resistance anisotropy A_III can be recomputed ENTIRELY from held-out data (K4 anti-circularity).",
+  "specimen_id_format": "beta-a-replicate (e.g. 90-8-3 = beta 90deg, a 8mm, replicate 3)",
+  "identification_set": [
+    "0-4-1", "0-4-2", "0-6-1", "0-6-2", "0-8-1", "0-8-2",
+    "45-4-1", "45-4-2", "45-6-1", "45-6-2", "45-8-1", "45-8-2",
+    "90-4-1", "90-4-2", "90-6-1", "90-6-2", "90-8-1", "90-8-2"
+  ],
+  "held_out_set": [
+    "0-4-3", "0-6-3", "0-8-3",
+    "45-4-3", "45-6-3", "45-8-3",
+    "90-4-3", "90-6-3", "90-8-3"
+  ],
+  "intact_controls": {
+    "count": 2,
+    "specimens": ["wanzheng-1", "wanzheng-2"],
+    "materialized": true,
+    "force_displacement_ref": "results/data/group_assets/f723fea9/curated/load_displacement.csv",
+    "peak_ref": "results/data/group_assets/f723fea9/curated/force_all_specimens.csv",
+    "role": "un-notched constraint that breaks the mu(beta)/cohesion degeneracy for K3; with no notch there is no Mode III cohesive fracture, so the control force-displacement isolates crack-face friction + machine/specimen elastic compliance independently of the notch cohesive law",
+    "note": "wanzheng-1/2 are materialised into the identification inputs (load_displacement.csv now carries 27 ANBD + 2 un-notched controls = 29 specimens; force_all_specimens.csv carries the 2 control peak rows at a=0). They enter the K3 joint inverse as the un-notched friction/compliance constraint that separates orientation-aware mu(beta) from the cohesive scalars. Whether the control-augmented inverse achieves a UNIQUE mu(beta) separation is resolved at E3/E5 by the control-augmented inversion + synthetic-twin recovery test; if it is not unique for a named physical/data reason, the K3 pre-declared real-reason downgrade applies. The mu-independent backbone (raw/frictionless anisotropy + per-orientation K_IIIc) is the strong floor regardless."
+  },
+  "counts": {"identification": 18, "held_out": 9, "intact_controls": 2, "dic_excluded": 4},
+  "dic_excluded_cells": {
+    "0-6-1": "weak_signal",
+    "0-6-2": "macrocracking",
+    "45-6-3": "weak_signal",
+    "45-8-3": "weak_signal"
+  },
+  "channel_availability_notes": [
+    "Force-displacement is available for all 27 ANBD specimens (identification + held-out) plus the 2 un-notched intact controls (wanzheng-1/2; 29 rows in load_displacement.csv); it is the primary data-misfit channel and, for the controls, the un-notched degeneracy-breaking constraint for K3.",
+    "Surface 3D-DIC W/CSD_W is available except for the 4 DIC-excluded cells (honored downstream via the dic_csd_cod_summary.csv 'excluded' column).",
+    "beta=0 a=6 cell: both identification specimens (0-6-1, 0-6-2) are DIC-excluded and 0-6-3 is held out, so DIC-W identification for beta=0 pools across the a=4 and a=8 cells (DIC-valid); force-displacement for the 0-6 cell is still used in identification.",
+    "Held-out W-field prediction uses the 7 DIC-valid held-out cells (all except 45-6-3, 45-8-3); held-out A_III (force-based K_IIIc) uses all 9 held-out cells."
+  ],
+  "claim_coverage": {
+    "K1_K2": "tau_III(delta_III; beta) + G_IIIc/peak-traction identified on the 18 identification specimens (force-displacement + DIC W/CSD_W).",
+    "K3": "mu(beta) + cohesive scalars jointly inverted on identification K_I*/K_III* + force-displacement, with the 2 un-notched intact controls (wanzheng-1/2) entering as the friction/compliance constraint that breaks the mu/cohesion degeneracy; held-out check on ANOVA-independent replicate cells. The mu-independent backbone is the strong floor; the orientation-aware mu(beta) separation is the conditional-positive result resolved at E3/E5.",
+    "K4": "held-out 9 specimens (NOT used in identification) test A_III=3.62 reproduction + AE shear-fraction trend; non-circular by construction."
+  },
+  "alternatives_considered": "Replicate-holdout (chosen): held-out r3 spans all beta -> A_III recomputable from held-out alone; preserves 2 identification replicates per cell. Notch-depth-holdout (rejected as primary): hold a whole a-cell; tests notch-depth generalization but A_III would be available at one notch depth only. The claim contract K4 admits replicate OR notch-depth holdout; replicate-holdout chosen for full-orientation A_III coverage. This split is the locked-claim implementation of P2 'held-out replicate / notch-depth cell NOT used in identification' + 'physical_independent'; it can be amended at E2/E4 through a claim_pressure / repair packet if the synthetic-twin harness reveals an identifiability constraint.",
+  "provenance": {
+    "specimen_source_csv": "results/data/group_assets/f723fea9/curated/kiiic_results.csv",
+    "dic_exclusion_source_csv": "results/data/group_assets/f723fea9/curated/dic_csd_cod_summary.csv",
+    "own_work_asset": {"document_id": 27, "sha256_8": "f723fea9", "dataset_id": 226}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "beta": 45,
+  "law_path": "../initial_law.json",
+  "split_path": "../results/data/e1_inputs/identification_split.json",
+  "peak_path": "../results/data/group_assets/f723fea9/curated/force_all_specimens.csv",
+  "gauge_path": "../results/data/e1_inputs/dic_channels/csd_w_cod_curve.csv",
+  "output_directory": "experiments/interface_pinn/runs/b45_family_seed17_inverse_recovered",
+  "device": "cuda",
+  "cpu_threads": 4,
+  "seed": 17,
+  "width": 48,
+  "depth": 3,
+  "fourier_frequencies": [
+    1,
+    2,
+    4
+  ],
+  "envelope_power": 1,
+  "sigma_gauge_um": 8.9,
+  "physics_weight": 1000,
+  "lm_iterations": 30,
+  "jacobian_chunk": 32,
+  "initial_damping": 1e-06,
+  "force_tolerance": 0.001,
+  "fraction_tolerance": 0.0001,
+  "critical_tolerance": 0.0001,
+  "checkpoint_every": 10,
+  "cases": [
+    {
+      "notch_depth_mm": 4,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a4.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b45_a4_seed17_spatial/checkpoint.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b45_a4_seed17_spatial/fields.npz"
+    },
+    {
+      "notch_depth_mm": 6,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a6.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b45_a6_seed17_finish/checkpoint.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b45_a6_seed17_finish/fields.npz"
+    },
+    {
+      "notch_depth_mm": 8,
+      "operator_path": "../results/runs/s1b_field_channel/ops/ops_s1b_a8.pkl",
+      "initial_checkpoint": "experiments/interface_pinn/runs/b45_a8_seed17_spatial/checkpoint.pt",
+      "initial_fields": "experiments/interface_pinn/runs/b45_a8_seed17_spatial/fields.npz"
+    }
+  ],
+  "resume_family_checkpoint": "experiments/interface_pinn/runs/b45_family_seed17_inverse_refine/checkpoint.pt"
+}

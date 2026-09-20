@@ -1,0 +1,233 @@
+{
+  "selected_runs": {
+    "0": "b0_family_seed17_c2_initialized_inverse",
+    "45": "b45_family_seed17_reference",
+    "90": "b90_family_seed17_inverse"
+  },
+  "stages": [
+    {
+      "name": "b0_a4_seed17_initial_branch",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a4_seed17_initial_branch.json",
+      "dependencies": []
+    },
+    {
+      "name": "b0_a4_seed17_c2_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a4_seed17_c2_path.json",
+      "dependencies": [
+        "b0_a4_seed17_initial_branch"
+      ]
+    },
+    {
+      "name": "b0_a4_seed17_c2_local_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a4_seed17_c2_local_path.json",
+      "dependencies": [
+        "b0_a4_seed17_c2_path"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_curriculum",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_curriculum.json",
+      "dependencies": []
+    },
+    {
+      "name": "b0_a6_seed17_lm_refine",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_lm_refine.json",
+      "dependencies": [
+        "b0_a6_seed17_curriculum"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_lm_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_lm_path.json",
+      "dependencies": [
+        "b0_a6_seed17_lm_refine"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_c2_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_c2_path.json",
+      "dependencies": [
+        "b0_a6_seed17_lm_path"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_c2_local_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_c2_local_path.json",
+      "dependencies": [
+        "b0_a6_seed17_c2_path"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_c2_local_limit",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_c2_local_limit.json",
+      "dependencies": [
+        "b0_a6_seed17_c2_local_path"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_arc",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_arc.json",
+      "dependencies": [
+        "b0_a6_seed17_lm_path"
+      ]
+    },
+    {
+      "name": "b0_a6_seed17_limit",
+      "script": "C-G/src/refine_interface_pinn_limit.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a6_seed17_limit.json",
+      "dependencies": [
+        "b0_a6_seed17_arc"
+      ]
+    },
+    {
+      "name": "b0_a8_seed17_initial_branch",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a8_seed17_initial_branch.json",
+      "dependencies": []
+    },
+    {
+      "name": "b0_a8_seed17_c2_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a8_seed17_c2_path.json",
+      "dependencies": [
+        "b0_a8_seed17_initial_branch"
+      ]
+    },
+    {
+      "name": "b0_a8_seed17_c2_local_path",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a8_seed17_c2_local_path.json",
+      "dependencies": [
+        "b0_a8_seed17_c2_path"
+      ]
+    },
+    {
+      "name": "b0_a8_seed17_c2_local_limit",
+      "script": "C-G/src/interface_pinn_continuation.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_a8_seed17_c2_local_limit.json",
+      "dependencies": [
+        "b0_a8_seed17_c2_local_path"
+      ]
+    },
+    {
+      "name": "b0_family_seed17_c2_initialized_inverse",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b0_family_seed17_c2_initialized_inverse.json",
+      "dependencies": [
+        "b0_a4_seed17_c2_local_path",
+        "b0_a4_seed17_initial_branch",
+        "b0_a6_seed17_c2_local_limit",
+        "b0_a6_seed17_limit",
+        "b0_a8_seed17_c2_local_limit",
+        "b0_a8_seed17_initial_branch"
+      ]
+    },
+    {
+      "name": "b45_a4_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_a4_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b45_a6_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_a6_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b45_a6_seed17_finish",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_a6_seed17_finish.json",
+      "dependencies": [
+        "b45_a6_seed17_spatial"
+      ]
+    },
+    {
+      "name": "b45_a8_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_a8_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b45_family_seed17_inverse",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_family_seed17_inverse.json",
+      "dependencies": [
+        "b45_a4_seed17_spatial",
+        "b45_a6_seed17_finish",
+        "b45_a8_seed17_spatial"
+      ]
+    },
+    {
+      "name": "b45_family_seed17_inverse_refine",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_family_seed17_inverse_refine.json",
+      "dependencies": [
+        "b45_a4_seed17_spatial",
+        "b45_a6_seed17_finish",
+        "b45_a8_seed17_spatial",
+        "b45_family_seed17_inverse"
+      ]
+    },
+    {
+      "name": "b45_family_seed17_inverse_recovered",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_family_seed17_inverse_recovered.json",
+      "dependencies": [
+        "b45_a4_seed17_spatial",
+        "b45_a6_seed17_finish",
+        "b45_a8_seed17_spatial",
+        "b45_family_seed17_inverse_refine"
+      ]
+    },
+    {
+      "name": "b45_family_seed17_reference",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b45_family_seed17_reference.json",
+      "dependencies": [
+        "b45_a4_seed17_spatial",
+        "b45_a6_seed17_finish",
+        "b45_a8_seed17_spatial",
+        "b45_family_seed17_inverse_recovered"
+      ]
+    },
+    {
+      "name": "b90_a4_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b90_a4_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b90_a6_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b90_a6_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b90_a8_seed17_spatial",
+      "script": "C-G/src/interface_pinn.py",
+      "config": "C-G/experiments/interface_pinn/configs/b90_a8_seed17_spatial.json",
+      "dependencies": []
+    },
+    {
+      "name": "b90_family_seed17_inverse",
+      "script": "C-G/src/interface_pinn_family.py",
+      "config": "C-G/experiments/interface_pinn/configs/b90_family_seed17_inverse.json",
+      "dependencies": [
+        "b90_a4_seed17_spatial",
+        "b90_a6_seed17_spatial",
+        "b90_a8_seed17_spatial"
+      ]
+    }
+  ]
+}
