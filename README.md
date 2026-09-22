@@ -1,8 +1,8 @@
 # Layered sandstone Mode III fracture: PINN source and inputs
 
 Source code and the experimental inputs used by the PINN in
-*Investigating bedding effects on Mode III fracture of sandstone using physics
-informed neural networks*, by Pengcheng Zhu and Tielin Chen, Beijing Jiaotong
+*Identifying bedding-dependent Mode III fracture laws in sandstone using
+physics-informed neural networks*, by Pengcheng Zhu and Tielin Chen, Beijing Jiaotong
 University.
 
 ## Package contents
